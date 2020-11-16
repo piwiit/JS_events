@@ -1,0 +1,82 @@
+//Fonctionnalité 1 :
+
+const onClickFooter = document.querySelector("footer");
+n = 0;
+function clickOnConsole() {
+  n += 1;
+  console.log(`clique n°${n}`);
+}
+onClickFooter.addEventListener("click", clickOnConsole);
+
+//Fonctionnalité 2 :
+let buttonClick = document.querySelector(".navbar-toggler");
+let userNavbar = document.querySelector("#navbarHeader");
+
+function onClickUserNavBar() {
+  userNavbar.classList.toggle("collapse");
+}
+buttonClick.addEventListener("click", onClickUserNavBar);
+
+//Fonctionnalité 3 :
+let editFocus = document.querySelector(
+  "body > main > div > div > div > div:nth-child(1) > div > div > div > div > button.btn.btn-sm.btn-outline-secondary"
+);
+let textCard = document.querySelector(".card-text");
+function redColor() {
+  textCard.className = "card-text text-danger";
+}
+editFocus.addEventListener("click", redColor);
+
+//Fonctionnalité 4 :
+let editSecondFocus = document.querySelector(
+  "body > main > div > div > div > div:nth-child(2) > div > div > div > div > button.btn.btn-sm.btn-outline-secondary"
+);
+let textCard2 = document.querySelector(
+  "body > main > div > div > div > div:nth-child(2) > div > div > p"
+);
+function greenColor() {
+  if (textCard2.className == "card-text") {
+    textCard2.className = "card-text text-success";
+  } else {
+    textCard2.className = "card-text";
+  }
+}
+editSecondFocus.addEventListener("click", greenColor);
+
+//Fonctionnalité 5 :
+let nuclearBombe = document.querySelector("head > link");
+let tryThis = document.querySelector(
+  "body > header > div.navbar.navbar-dark.bg-dark.box-shadow"
+);
+function deleteAllCss() {
+  if (nuclearBombe.disabled === false) {
+    nuclearBombe.disabled = true;
+  } else {
+    nuclearBombe.disabled = false;
+  }
+}
+tryThis.addEventListener("dblclick", deleteAllCss);
+userNavbar.addEventListener("dblclick", deleteAllCss);
+
+//Fonctionnalité 6 :
+let cards = document.querySelectorAll(".card");
+for (i = 0; i < cards.length; i++) {
+  let viewBtn = cards[i].querySelector(".btn-success");
+  let textCardHover = cards[i].querySelector(".card-text");
+  let imgHover = cards[i].querySelector(".card-img-top");
+  let status = true;
+  function hoverCard() {
+    if (status == true) {
+      imgHover.style.width = "20%";
+      imgHover.style.margin = "auto";
+      textCardHover.textContent = "";
+      status = false;
+    } else {
+      imgHover.style.width = "100%";
+      textCardHover.textContent =
+        "L’HyperText Markup Language, généralement abrégé HTML, est le langage de balisage conçu pour représenter les pages web";
+      status = true;
+    }
+  }
+  viewBtn.addEventListener("mouseover", hoverCard);
+}
