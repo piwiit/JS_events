@@ -80,3 +80,23 @@ for (i = 0; i < cards.length; i++) {
   }
   viewBtn.addEventListener("mouseover", hoverCard);
 }
+
+//Fonctionnalité 7 :
+let grayArrow = document.querySelector(
+  "body > main > section > div > p > a.btn.btn-secondary.my-2"
+);
+const container = document.querySelector("body > main > div > div > div");
+function reverseChilde() {
+  container.insertBefore(container.children[0], container.children[0 - 1]);
+}
+grayArrow.addEventListener("click", reverseChilde);
+
+//Fonctionnalité 8 :
+let blueArrow = document.querySelector(
+  "body > main > section > div > p > a.btn.btn-primary.my-2"
+);
+blueArrow.href = "#";
+function reverseBlueChilde() {
+  container.insertBefore(container.children[5], container.children[0]);
+}
+blueArrow.addEventListener("click", reverseBlueChilde);
