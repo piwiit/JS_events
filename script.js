@@ -69,12 +69,11 @@ for (i = 0; i < cards.length; i++) {
     if (status == true) {
       imgHover.style.width = "20%";
       imgHover.style.margin = "auto";
-      textCardHover.textContent = "";
+      textCardHover.style.display = "none";
       status = false;
     } else {
       imgHover.style.width = "100%";
-      textCardHover.textContent =
-        "L’HyperText Markup Language, généralement abrégé HTML, est le langage de balisage conçu pour représenter les pages web";
+      textCardHover.style.display = "block";
       status = true;
     }
   }
@@ -87,7 +86,7 @@ let grayArrow = document.querySelector(
 );
 const container = document.querySelector("body > main > div > div > div");
 function reverseChilde() {
-  container.insertBefore(container.children[0], container.children[0 - 1]);
+  container.insertBefore(container.children[0], container.children[length - 1]);
 }
 grayArrow.addEventListener("click", reverseChilde);
 
@@ -100,3 +99,22 @@ function reverseBlueChilde() {
   container.insertBefore(container.children[5], container.children[0]);
 }
 blueArrow.addEventListener("click", reverseBlueChilde);
+
+//Fonctionnalité 9 :
+let focusLogo = document.querySelector(
+  "body > header > div.navbar.navbar-dark.bg-dark.box-shadow > div > a"
+);
+let bodyElement = document.querySelector("body");
+
+function amazingFouction(e) {
+  if (e.key == "a") {
+    bodyElement.className = "col-4";
+  } else if (e.key == "p") {
+    bodyElement.className = "offset-md-8";
+  } else if (e.key == "y") {
+    bodyElement.className = "col-4 offset-md-4";
+  } else if (e.key == "b") {
+    bodyElement.className = "";
+  }
+}
+focusLogo.addEventListener("keydown", amazingFouction);
